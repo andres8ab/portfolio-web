@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Andres Ochoa — Frontend Engineer, Web &amp; Mobile</title>
+<meta name="description" content="Frontend engineer, eleven shipped web and mobile products in four years. Frontend architecture, API integrations and performance that holds in production.">
+<meta name="author" content="Andres Ochoa">
+<meta name="theme-color" content="#07060C">
+<link rel="canonical" href="https://andresochoa.com.co/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Andres Ochoa">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Andres Ochoa — Frontend Engineer, Web &amp; Mobile">
+<meta property="og:description" content="I build scalable web and mobile experiences. Four years, eleven shipped products, one standard.">
+<meta property="og:url" content="https://andresochoa.com.co/">
+<meta property="og:image" content="https://andresochoa.com.co/assets/og/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Andres Ochoa — frontend engineer building scalable web and mobile experiences.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Andres Ochoa — Frontend Engineer, Web &amp; Mobile">
+<meta name="twitter:description" content="I build scalable web and mobile experiences. Four years, eleven shipped products, one standard.">
+<meta name="twitter:image" content="https://andresochoa.com.co/assets/og/og-image.jpg">
+<meta name="twitter:image:alt" content="Andres Ochoa — frontend engineer building scalable web and mobile experiences.">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Andres Ochoa",
+  "jobTitle": "Frontend Engineer",
+  "description": "Frontend engineer building scalable web and mobile products, owning frontend architecture, API integrations and performance optimization.",
+  "url": "https://andresochoa.com.co/",
+  "image": "https://andresochoa.com.co/assets/og/og-image.jpg",
+  "email": "mailto:ochoabawab@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/andres-ochoa-bawab-5a36b3272/",
+    "https://github.com/andres8ab"
+  ],
+  "knowsAbout": ["Frontend Architecture","Web Development","Cross-Platform Mobile Development","Performance Optimization","Design Systems"]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#hero">Skip to content</a>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader" role="status" aria-label="Loading">
+  <div class="preloader__half preloader__half--top"></div>
+  <div class="preloader__half preloader__half--bottom"></div>
+  <div class="preloader__inner">
+    <span class="preloader__name">ANDRES OCHOA</span>
+    <span class="preloader__count" id="preloaderCount">000</span>
+    <span class="preloader__rail"><i id="preloaderBar"></i></span>
+  </div>
+  <div class="preloader__bloom"></div>
+</div>
+
+<!-- ============ GRAIN + CURSOR ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__dot"></span>
+  <span class="cursor__ring"><b class="cursor__label"></b></span>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#hero"><span>AO</span></a>
+  <nav class="nav__links" aria-label="Sections">
+    <span class="nav__pip" id="navPip" aria-hidden="true"></span>
+    <a href="#service" data-nav>What I do</a>
+    <a href="#story" data-nav>Story</a>
+    <a href="#work" data-nav>Projects</a>
+  </nav>
+  <a class="nav__cta btn btn--sm" href="#contact" data-magnetic>Get in touch</a>
+</header>
+
+<main>
+
+<!-- ============ 02 · HERO ============ -->
+<section class="hero scene" id="hero" data-scene="1" data-portrait>
+  <div class="scene__media">
+    <!-- the first image the page fetches: <picture> lets each screen pick its own
+         still up front, with no JS swap and no double download. The media query is
+         the same one script.js (PORTRAIT) and style.css use. -->
+    <picture>
+      <source media="(orientation: portrait) and (max-width: 1024px)" srcset="assets/video/scene-01-portrait-poster.jpg">
+      <img class="scene__poster" id="heroPoster" src="assets/video/scene-01-poster.jpg" alt="" aria-hidden="true" fetchpriority="high">
+    </picture>
+    <video class="scene__video" id="heroVideo" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"
+           data-poster="assets/video/scene-01-poster.jpg"
+           data-poster-portrait="assets/video/scene-01-portrait-poster.jpg"
+           data-mp4="assets/video/scene-01-assembly.mp4"
+           data-mp4-portrait="assets/video/scene-01-portrait.mp4"
+></video>
+  </div>
+  <div class="scene__vignette" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <p class="eyebrow" data-reveal>Frontend Engineer — Web &amp; Mobile</p>
+    <h1 class="hero__title">
+      <span class="line"><span class="line__i">I Build</span></span>
+      <span class="line"><span class="line__i grad">Scalable</span></span>
+      <span class="line"><span class="line__i">Experiences</span></span>
+    </h1>
+    <p class="hero__sub" data-reveal>Four years turning interfaces into production systems. Frontend architecture, API integration, and performance that holds under real traffic.</p>
+    <div class="hero__actions" data-reveal>
+      <a class="btn btn--primary" href="#contact" data-magnetic>Let's build something</a>
+      <a class="btn btn--ghost" href="#work" data-magnetic>See the work</a>
+    </div>
+  </div>
+
+  <div class="hero__cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+</section>
+
+<!-- ============ 03 · STATS ============ -->
+<section class="stats" id="stats" aria-label="At a glance">
+  <div class="stats__rail">
+    <div class="stat"><span class="stat__n" data-count="4" data-suffix="+">0</span><span class="stat__k">Years</span><span class="stat__d">in production</span></div>
+    <div class="stat"><span class="stat__n" data-count="11" data-pad="2">0</span><span class="stat__k">Products</span><span class="stat__d">live in the world</span></div>
+    <div class="stat"><span class="stat__n" data-count="2" data-pad="2">0</span><span class="stat__k">Platforms</span><span class="stat__d">web &amp; mobile</span></div>
+    <div class="stat"><span class="stat__n stat__n--text">JR→SSR</span><span class="stat__k">Promoted</span><span class="stat__d">on merit, not tenure</span></div>
+  </div>
+</section>
+
+<!-- ============ 04 · SERVICE ============ -->
+<section class="service" id="service">
+  <header class="sec__head">
+    <p class="eyebrow" data-reveal>What I do</p>
+    <h2 class="sec__title" data-reveal>One thing,<br>done properly.</h2>
+  </header>
+
+  <article class="offer" data-tilt>
+    <span class="offer__glow" aria-hidden="true"></span>
+    <span class="offer__idx" aria-hidden="true">01</span>
+
+    <div class="offer__head">
+      <span class="offer__tag">Web &amp; Mobile Development</span>
+      <h3 class="offer__title">Frontend engineering,<br><span class="grad">end to end.</span></h3>
+      <p class="offer__lead">For teams and founders who need an interface built once, built right, and still maintainable a year from now. Embedded in your team or freelance — the standard doesn't change.</p>
+    </div>
+
+    <ul class="offer__list">
+      <li>
+        <b>Frontend architecture</b>
+        <span>Component systems, design systems, and state architecture that stay coherent as the team and the product grow.</span>
+      </li>
+      <li>
+        <b>Web &amp; mobile delivery</b>
+        <span>End-to-end feature work across both platforms — React Native and Flutter apps running on iOS and Android, shipped to the stores.</span>
+      </li>
+      <li>
+        <b>API integration</b>
+        <span>REST APIs, auth, and the unglamorous data-flow edges that decide whether a product actually ships.</span>
+      </li>
+      <li>
+        <b>Performance</b>
+        <span>Core Web Vitals, bundle discipline, and animation that never drops a frame.</span>
+      </li>
+    </ul>
+
+    <div class="offer__foot">
+      <a class="btn btn--primary" href="#contact" data-magnetic>Get in contact</a>
+      <p class="offer__note">Full-time, contract, or freelance · Remote</p>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 05 · STORY ============ -->
+<section class="story" id="story">
+  <div class="story__grid">
+    <div class="story__left">
+      <div class="story__sticky">
+        <p class="eyebrow">The path</p>
+        <h2 class="story__title">Four years,<br>eleven products,<br><span class="grad">one standard.</span></h2>
+        <span class="story__progress" aria-hidden="true"><i id="storyProgress"></i></span>
+      </div>
+    </div>
+    <div class="story__right">
+      <article class="chapter"><p class="chapter__year">2022 — The start</p><p class="chapter__body">First paid site, built freelance for a shop that had none — catalogue, contact, and vanilla JavaScript, HTML and CSS. Hosted and indexed so customers could actually find it. One rule from day one I’ve never dropped: understand the whole system, not just my ticket.</p></article>
+      <article class="chapter"><p class="chapter__year">2023 — Full stack</p><p class="chapter__body">Built a wholesale ecommerce platform end to end — Next.js and MongoDB, stock that stayed true in real time, an order pipeline over Nodemailer, and online payments. Learned to own the whole system, not just the screen in front of it.</p></article>
+      <article class="chapter"><p class="chapter__year">2024 — Scale</p><p class="chapter__body">Frontend across six client products at an agency: an ERP, a leadership-evaluation SaaS, a social music platform, two ecommerce builds — and a mobile migration off Ionic-Angular onto React Native. Different domains, same standard.</p></article>
+      <article class="chapter"><p class="chapter__year">2025 — Product</p><p class="chapter__body">Joined Alfred. The partner-shop web app in React and Redux, the drivers app in React Native, the customer app in Flutter. Three codebases, three audiences, one product.</p></article>
+      <article class="chapter"><p class="chapter__year">2026 — Promoted</p><p class="chapter__body">Moved up to semi-senior — not for time served, but for ownership and technical decision-making. Now leading feature work across a two-platform fleet-management monorepo in Next.js, Tailwind, HeroUI and Zustand.</p></article>
+      <article class="chapter"><p class="chapter__year">Today</p><p class="chapter__body">Eleven products live across web and mobile. Looking for the team or the client whose next thing deserves to be built properly.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · SCENE 02 · BUILDER ============ -->
+<section class="scene scene--mid" id="builder" data-scene="2" data-portrait>
+  <div class="scene__media">
+    <img class="scene__poster" data-src="assets/video/scene-02b-poster.jpg" data-src-portrait="assets/video/scene-02b-portrait-poster.jpg" alt="" aria-hidden="true" decoding="async">
+    <video class="scene__video" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"
+           data-poster="assets/video/scene-02b-poster.jpg"
+           data-poster-portrait="assets/video/scene-02b-portrait-poster.jpg"
+           data-mp4="assets/video/scene-02b-builder.mp4"
+           data-mp4-portrait="assets/video/scene-02b-portrait.mp4"
+></video>
+  </div>
+  <div class="scene__vignette" aria-hidden="true"></div>
+  <div class="scene__caption">
+    <p class="eyebrow">The builder</p>
+    <h2 class="scene__title">Every one of these<br>shipped to real users.</h2>
+  </div>
+</section>
+
+<!-- ============ 07 · WORK ============ -->
+<section class="work" id="work">
+  <header class="sec__head sec__head--row">
+    <div>
+      <p class="eyebrow" data-reveal>Selected work</p>
+      <h2 class="sec__title" data-reveal>Eleven live products.<br><span class="on-pointer">Drag them around.</span><span class="on-touch">Swipe through them.</span></h2>
+    </div>
+    <p class="work__hint" data-reveal><span class="on-pointer">Grab a card to move it. Click to open a scrollable preview of the real site.</span><span class="on-touch">Swipe the row. Tap any card to open a scrollable preview of the real site.</span></p>
+  </header>
+
+  <div class="browser" id="browser">
+    <div class="browser__bar">
+      <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="browser__url" id="browserUrl">andresochoa.com.co/work</span>
+      <span class="browser__tools">
+        <button type="button" class="chip" id="shuffleBtn">Shuffle</button>
+        <button type="button" class="chip" id="resetBtn">Reset</button>
+      </span>
+    </div>
+    <div class="browser__canvas" id="canvas">
+      <div class="browser__grid" aria-hidden="true"></div>
+
+      <button type="button" class="card" data-slug="todo-electrico" data-url="https://www.todoelectricovictor.com/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/todo-electrico-thumb.webp" alt="Todo Eléctrico Victor ecommerce storefront" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Todo Eléctrico Victor</b><i>Ecommerce · Freelance</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="wurth" data-url="https://www.wurth.co/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/wurth-thumb.webp" alt="Würth multiplatform commerce site" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Würth</b><i>Multiplatform commerce</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="alfred-fleet" data-url="https://empresas.alfred.co/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/alfred-fleet-thumb.webp" alt="Alfred Empresas fleet management platform" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Alfred Empresas</b><i>Fleet management</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="litsight" data-url="https://www.litsight.pro/en" data-kind="web">
+        <span class="card__shot"><img src="assets/work/litsight-thumb.webp" alt="LitSight SaaS platform" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>LitSight</b><i>SaaS platform</i></span>
+      </button>
+
+      <button type="button" class="card card--phone" data-slug="uflou" data-url="https://apps.apple.com/co/app/uflou/id1550087947" data-kind="app">
+        <span class="card__shot"><img src="assets/work/uflou-thumb.webp" alt="Uflou mobile app" loading="lazy" decoding="async"></span>
+        <span class="card__badge">React Native</span>
+        <span class="card__meta"><b>Uflou</b><i>Mobile app</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="fanatik" data-url="https://fanatik.lat/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/fanatik-thumb.webp" alt="Fanatik social and music platform" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Fanatik</b><i>Social &amp; music</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="alfred" data-url="https://alfred.co/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/alfred-thumb.webp" alt="Alfred consumer product site" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Alfred</b><i>B2C product · Flutter</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="doxa" data-url="https://doxasistemas.com/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/doxa-thumb.webp" alt="Doxa Sistemas ERP platform" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Doxa Sistemas</b><i>ERP platform</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="next-tailwind" data-url="https://next-tailwind-ob.vercel.app/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/next-tailwind-thumb.webp" alt="Comercializadora OB full-stack ecommerce site" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Comercializadora OB</b><i>Full-stack ecommerce</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="alfred-b2b" data-url="https://b2b.alfred.co/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/alfred-b2b-thumb.webp" alt="Shop Allies B2B web app" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Shop Allies</b><i>B2B web app</i></span>
+      </button>
+
+      <button type="button" class="card" data-slug="collection-app" data-url="https://collection-app-bice.vercel.app/" data-kind="web">
+        <span class="card__shot"><img src="assets/work/collection-app-thumb.webp" alt="Collection App billing tool" loading="lazy" decoding="async"></span>
+        <span class="card__meta"><b>Collection App</b><i>Billing tool · Freelance</i></span>
+      </button>
+    </div>
+  </div>
+
+  <noscript>
+    <ul class="work__fallback">
+      <li><a href="https://www.todoelectricovictor.com/">Todo Eléctrico Victor</a></li>
+      <li><a href="https://www.wurth.co/">Würth</a></li>
+      <li><a href="https://empresas.alfred.co/">Alfred Empresas</a></li>
+      <li><a href="https://www.litsight.pro/en">LitSight</a></li>
+      <li><a href="https://apps.apple.com/co/app/uflou/id1550087947">Uflou</a></li>
+      <li><a href="https://fanatik.lat/">Fanatik</a></li>
+      <li><a href="https://alfred.co/">Alfred</a></li>
+      <li><a href="https://doxasistemas.com/">Doxa Sistemas</a></li>
+      <li><a href="https://next-tailwind-ob.vercel.app/">Comercializadora OB</a></li>
+      <li><a href="https://b2b.alfred.co/">Shop Allies</a></li>
+      <li><a href="https://collection-app-bice.vercel.app/">Collection App</a></li>
+    </ul>
+  </noscript>
+</section>
+
+<!-- ============ PREVIEW MODAL ============ -->
+<div class="preview" id="preview" role="dialog" aria-modal="true" aria-labelledby="previewTitle" hidden>
+  <div class="preview__backdrop" id="previewBackdrop"></div>
+  <div class="preview__panel" id="previewPanel">
+    <button type="button" class="preview__close" id="previewClose" aria-label="Close preview">✕</button>
+    <div class="preview__screen">
+      <div class="preview__scroll" id="previewScroll"><img id="previewImg" src="" alt=""></div>
+      <span class="preview__scrollhint" aria-hidden="true">Scroll inside</span>
+    </div>
+    <div class="preview__info">
+      <p class="eyebrow" id="previewKind">Web</p>
+      <h3 id="previewTitle">Project</h3>
+      <p class="preview__note" id="previewNote"></p>
+      <ul class="preview__tags" id="previewTags"></ul>
+      <a class="btn btn--primary" id="previewLink" href="#" target="_blank" rel="noopener noreferrer">Visit live site ↗</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ 08 · STACK ============ -->
+<section class="stack" id="stack" aria-label="Technologies">
+  <div class="marquee" id="marquee"><div class="marquee__track" id="marqueeTrack"></div></div>
+</section>
+
+<!-- ============ 09 · SCENE 03 · HANDOFF ============ -->
+<section class="scene scene--mid" id="handoff" data-scene="3" data-portrait>
+  <div class="scene__media">
+    <img class="scene__poster" data-src="assets/video/scene-03b-poster.jpg" data-src-portrait="assets/video/scene-03b-portrait-poster.jpg" alt="" aria-hidden="true" decoding="async">
+    <video class="scene__video" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"
+           data-poster="assets/video/scene-03b-poster.jpg"
+           data-poster-portrait="assets/video/scene-03b-portrait-poster.jpg"
+           data-mp4="assets/video/scene-03b-handoff.mp4"
+           data-mp4-portrait="assets/video/scene-03b-portrait.mp4"
+></video>
+  </div>
+  <div class="scene__vignette" aria-hidden="true"></div>
+  <div class="scene__caption scene__caption--center">
+    <p class="eyebrow">Let's talk</p>
+    <h2 class="scene__title">Here's the thing<br>I'd build for you.</h2>
+  </div>
+</section>
+
+<!-- ============ 10 · CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact__grid">
+    <div class="contact__intro">
+      <p class="eyebrow" data-reveal>Get in touch</p>
+      <h2 class="contact__title" data-reveal>Got something<br><span class="grad">worth building?</span></h2>
+      <p class="contact__sub" data-reveal>I'm open to senior frontend roles, contract work, and freelance projects. Tell me what you're building — I reply to everything.</p>
+      <p class="contact__direct" data-reveal data-cursor="plain">Or email directly — <a id="directEmail" href="#">—</a></p>
+    </div>
+
+    <form class="form" id="contactForm" novalidate>
+      <div class="field">
+        <input type="text" id="fName" name="name" required autocomplete="name" placeholder=" ">
+        <label for="fName">Your name</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <span class="field__err" data-err-for="fName" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <input type="email" id="fEmail" name="email" required autocomplete="email" placeholder=" ">
+        <label for="fEmail">Email</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <span class="field__err" data-err-for="fEmail" aria-live="polite"></span>
+      </div>
+      <div class="field field--select">
+        <select id="fSubject" name="subject">
+          <option value="embedded">Embedded in your team</option>
+          <option value="freelance">Freelance project</option>
+          <option value="review">Architecture &amp; performance review</option>
+          <option value="other">Something else</option>
+        </select>
+        <label for="fSubject">What's this about</label>
+        <span class="field__line" aria-hidden="true"></span>
+      </div>
+      <div class="field">
+        <textarea id="fMessage" name="message" rows="4" required placeholder=" "></textarea>
+        <label for="fMessage">Message</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <span class="field__err" data-err-for="fMessage" aria-live="polite"></span>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full" id="submitBtn" data-magnetic>
+        <span class="btn__label">Send message</span>
+        <span class="btn__spin" aria-hidden="true"></span>
+      </button>
+      <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__note">&copy; <span id="footerYear">2026</span> Andres Ochoa</p>
+    <nav class="footer__links" aria-label="Elsewhere" data-cursor="plain">
+      <a href="https://www.linkedin.com/in/andres-ochoa-bawab-5a36b3272/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+        <span class="footer__tip" aria-hidden="true">LinkedIn</span>
+        <svg class="footer__ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/andres8ab" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+        <span class="footer__tip" aria-hidden="true">GitHub</span>
+        <svg class="footer__ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a id="footerEmail" href="#" aria-label="Email Andres">
+        <span class="footer__tip" aria-hidden="true">Email</span>
+        <svg class="footer__ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" transform="translate(12 12) scale(1.2) translate(-12 -12)"/></svg>
+      </a>
+    </nav>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>

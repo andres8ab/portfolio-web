@@ -1,0 +1,11 @@
+# Build tooling — reinstall with: cd tools && npm install
+tools/node_modules/
+
+# 1080p Seedance masters. Kept locally for re-encoding; not deployed.
+assets/video/source/
+
+.DS_Store
+
+# Working files (photo refs, frame checks, rehearsal renders). Local only.
+media/
+review/
