@@ -9,3 +9,5 @@ assets/video/source/
 # Working files (photo refs, frame checks, rehearsal renders). Local only.
 media/
 review/
+.vercel
+.env*

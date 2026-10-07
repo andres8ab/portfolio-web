@@ -4,3 +4,4 @@ BUILD-PLAN.md
 media/
 review/
 assets/video/source/
+.env*
