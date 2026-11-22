@@ -536,13 +536,13 @@ const hero = {
 
     if (!REDUCED) {
       gsap.set(lines, { yPercent: 115, rotateX: -45, opacity: 0 });
-      gsap.set(['.hero__content .eyebrow', '.hero__sub', '.hero__actions'], { y: 24, opacity: 0 });
+      gsap.set(['.hero__content .status', '.hero__content .eyebrow', '.hero__sub', '.hero__actions'], { y: 24, opacity: 0 });
     }
 
     this.entrance = () => {
       if (REDUCED) return;
       const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-      tl.to('.hero__content .eyebrow', { y: 0, opacity: 1, duration: .7 })
+      tl.to(['.hero__content .status', '.hero__content .eyebrow'], { y: 0, opacity: 1, duration: .7, stagger: .08 })
         .to(lines, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.05, stagger: .07 }, '-=.55')
         .to('.hero__sub',     { y: 0, opacity: 1, duration: .8 }, '-=.9')
         .to('.hero__actions', { y: 0, opacity: 1, duration: .8 }, '-=.7');
@@ -714,6 +714,15 @@ const work = {
     this.cards.forEach(card => {
       const meta = CONFIG.projects[card.dataset.slug];
       if (meta) card.setAttribute('aria-label', `${meta.name} — open preview`);
+      // the stack is what a recruiter scans for, so it sits on the card itself
+      // rather than only inside the preview; same tags, one source
+      const metaEl = $('.card__meta', card);
+      if (meta?.tags?.length && metaEl && !$('.card__stack', metaEl)) {
+        const stack = document.createElement('span');
+        stack.className = 'card__stack';
+        stack.textContent = meta.tags.join(' · ');
+        metaEl.appendChild(stack);
+      }
       const img = $('img', card);
       if (img) img.addEventListener('error', () => {
         img.setAttribute('data-failed', '');

@@ -119,6 +119,49 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .btn.is-busy .btn__label{opacity:.6}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* Download CV: the one button that's meant to be found. A signature-gradient
+   rim turns slowly around a dark glass fill, and a soft violet/magenta halo
+   breathes behind it. --a is registered so the conic angle can animate. */
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.btn--cv{
+  isolation:isolate;overflow:visible;color:var(--paper);
+  background:linear-gradient(135deg,rgba(46,16,101,.55),rgba(12,10,20,.85));backdrop-filter:blur(12px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.06),0 10px 34px rgba(124,58,237,.32);
+  animation:cv-halo 3.2s ease-in-out infinite
+}
+.btn--cv::before{
+  content:'';position:absolute;inset:-2px;border-radius:inherit;z-index:-1;padding:2px;
+  background:conic-gradient(from var(--a),var(--violet-400),var(--magenta),var(--cyan),var(--violet-400));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:cv-spin 4s linear infinite
+}
+.btn--cv::after{
+  content:'';position:absolute;inset:-4px;border-radius:inherit;z-index:-2;pointer-events:none;
+  background:conic-gradient(from var(--a),rgba(155,92,255,.55),rgba(232,121,249,.45),rgba(76,201,240,.35),rgba(155,92,255,.55));
+  filter:blur(14px);opacity:.85;animation:cv-spin 4s linear infinite;transition:opacity .4s
+}
+.btn--cv:hover{color:#fff;background:rgba(46,16,101,.7)}
+.btn--cv:hover::after{opacity:1;filter:blur(18px)}
+.btn__ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes cv-spin{to{--a:360deg}}
+@keyframes cv-halo{0%,100%{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 10px 34px rgba(124,58,237,.28)}50%{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 12px 48px rgba(232,121,249,.42)}}
+
+/* availability pill — the first thing a recruiter should read */
+.status{
+  display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-bottom:22px;
+  padding:8px 16px 8px 12px;border-radius:var(--r-full);
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#C9F7DC;background:rgba(34,197,94,.1);border:1px solid rgba(74,222,128,.32);
+  backdrop-filter:blur(10px)
+}
+.status__dot{position:relative;width:8px;height:8px;border-radius:50%;background:#4ADE80;flex:none;box-shadow:0 0 10px rgba(74,222,128,.8)}
+.status__dot::after{
+  content:'';position:absolute;inset:0;border-radius:50%;background:#4ADE80;
+  animation:status-ping 2s cubic-bezier(0,0,.2,1) infinite
+}
+@keyframes status-ping{75%,100%{transform:scale(2.6);opacity:0}}
+
 .chip{
   font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;
   padding:7px 14px;border-radius:var(--r-full);border:1px solid var(--hairline);
@@ -380,7 +423,23 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .chapter__body{color:var(--muted);font-size:var(--t-lead);line-height:1.55;max-width:46ch}
 
 /* work / browser */
-.work{padding:var(--rhythm) 0}
+/* A band of its own: the one section that has to stop a skim. Lifted off the
+   void with an ink base and a violet bloom, faded at both edges so it doesn't
+   hard-cut against the stats rail or the offer below. */
+.work{
+  position:relative;padding:var(--rhythm) 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 58%,rgba(124,58,237,.16) 0%,transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 20%,rgba(232,121,249,.06) 0%,transparent 70%),
+    linear-gradient(to bottom,var(--void) 0%,var(--ink) 14%,var(--ink) 86%,var(--void) 100%)
+}
+.work::before,.work::after{
+  content:'';position:absolute;left:50%;width:min(var(--maxw),calc(100% - var(--gutter)*2));height:1px;
+  transform:translateX(-50%);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(155,92,255,.45),rgba(232,121,249,.35),transparent)
+}
+.work::before{top:0}
+.work::after{bottom:0}
 .browser{
   max-width:var(--maxw);margin:0 auto;padding:0;
   width:calc(100% - var(--gutter)*2);margin-left:auto;margin-right:auto;
@@ -405,7 +464,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 }
 .browser__tools{display:flex;gap:8px;flex:none}
 .browser__canvas{
-  position:relative;height:min(74vh,720px);height:min(74svh,720px);overflow:hidden;
+  position:relative;height:min(84vh,800px);height:min(84svh,800px);overflow:hidden;
   background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(46,16,101,.35) 0%,transparent 70%),var(--ink);
   touch-action:pan-y
 }
@@ -433,6 +492,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .card__meta{display:flex;flex-direction:column;gap:2px;padding:13px 15px 15px}
 .card__meta b{font-size:.875rem;font-weight:600;letter-spacing:-.01em}
 .card__meta i{font-family:var(--f-mono);font-style:normal;font-size:.625rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.card__stack{
+  display:block;margin-top:7px;font-family:var(--f-mono);font-size:.5625rem;line-height:1.5;
+  letter-spacing:.02em;color:var(--violet-300);opacity:.85
+}
 .card--phone{width:158px}
 .card--phone .card__shot{aspect-ratio:9/16}
 .card--phone .card__shot img{object-position:top center}
@@ -504,6 +567,31 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 
 /* contact */
 /* the footer closes the page; this just needs room to breathe above it */
+/* voices — testimonials */
+.voices{padding:var(--rhythm) 0 calc(var(--rhythm)*.6)}
+.voices__grid{
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,24px)
+}
+.voice{
+  position:relative;display:flex;flex-direction:column;gap:28px;margin:0;
+  padding:clamp(26px,2.6vw,36px);border-radius:var(--r-lg);overflow:hidden;
+  background:radial-gradient(ellipse 120% 70% at 0% 0%,rgba(124,58,237,.14) 0%,transparent 60%),var(--glass);
+  border:1px solid var(--hairline);backdrop-filter:blur(20px);box-shadow:var(--e2);
+  transition:border-color .35s,box-shadow .4s
+}
+.voice:hover{border-color:rgba(155,92,255,.34);box-shadow:var(--e3),0 0 40px rgba(124,58,237,.2)}
+.voice__mark{
+  position:absolute;top:-6px;right:22px;font-family:var(--f-display);font-size:6.5rem;line-height:1;
+  font-variation-settings:'wght' 800;opacity:.5;pointer-events:none
+}
+.voice__quote{position:relative;margin:0;font-size:var(--t-lead);line-height:1.5;color:var(--paper);letter-spacing:-.005em;flex:1}
+.voice__by{display:flex;align-items:center;gap:14px}
+.voice__by img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--hairline-hi)}
+.voice__by span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.voice__by b{font-size:.9375rem;font-weight:600;letter-spacing:-.01em}
+.voice__by i{font-family:var(--f-mono);font-style:normal;font-size:.625rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
 .contact{padding:var(--rhythm) 0 clamp(56px,8vh,104px)}
 .contact__grid{
   max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);
@@ -517,6 +605,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .contact__direct{font-family:var(--f-mono);font-size:.8125rem;color:var(--dim)}
 .contact__direct a{color:var(--violet-300);border-bottom:1px solid rgba(196,163,255,.35)}
 .contact__direct a:hover{color:var(--paper)}
+.contact__cv{margin-top:32px}
 
 .form{
   padding:40px 36px;border-radius:var(--r-lg);background:var(--glass);
@@ -628,6 +717,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   html{scroll-padding-top:76px}
 
   .story__grid,.contact__grid{grid-template-columns:1fr;gap:48px}
+  .voices__grid{grid-template-columns:1fr;max-width:680px}
+  .voice{gap:22px}
+  .voice__mark{font-size:4.5rem;top:-2px;right:16px;opacity:.32}
+  .voice__quote{padding-right:28px}
   .story__sticky{position:static}
   .story__right{gap:44px}
   .contact__grid>*{max-width:640px;width:100%}
@@ -656,12 +749,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .offer__list li:nth-child(even){padding-left:0;border-left:0}
   .offer__foot .btn{width:100%}
   .browser{width:calc(100% - 32px);border-radius:var(--r-md)}
+  /* work → 2-column grid: all eleven visible on the way down, nothing hidden sideways */
   .browser__canvas{
-    height:auto;display:flex;align-items:flex-start;gap:14px;
-    overflow-x:auto;overflow-y:hidden;
-    padding:18px 16px;scroll-snap-type:x mandatory;scroll-padding-left:16px;
-    -webkit-overflow-scrolling:touch;
-    touch-action:pan-x
+    height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+    overflow:visible;padding:14px;touch-action:auto
   }
   .on-pointer{display:none}
   .on-touch{display:inline}
@@ -671,20 +762,23 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       radial-gradient(ellipse 90% 60% at 50% 35%,transparent 0%,rgba(7,6,12,.5) 70%,rgba(7,6,12,.92) 100%),
       linear-gradient(to bottom,rgba(7,6,12,.7) 0%,transparent 18%,rgba(7,6,12,.72) 52%,rgba(7,6,12,.97) 100%)
   }
-  .browser__canvas::-webkit-scrollbar{display:none}
   .browser__grid{display:none}
   /* touch-action:none exists for the desktop pointer-drag, which never runs here
      (work.init skips enableDrag on mobile). Leaving it on made two thirds of the
      row's surface refuse to pan — the one thing the section asks you to do. */
   .card{
-    position:relative!important;transform:none!important;flex:0 0 auto;
-    width:min(238px,64vw);scroll-snap-align:start;cursor:pointer;touch-action:auto
+    position:relative!important;transform:none!important;
+    width:auto;min-width:0;cursor:pointer;touch-action:auto
   }
   /* one shot height for every card, so the single 9:16 phone card stops setting
      the height of the whole row and leaving the web cards in 150px of nothing */
-  .card__shot{aspect-ratio:auto;height:clamp(118px,38vw,150px)}
-  .card--phone{width:min(132px,36vw)}
-  .card--phone .card__shot{aspect-ratio:auto;height:clamp(118px,38vw,150px)}
+  .card__shot{aspect-ratio:auto;height:clamp(96px,28vw,170px)}
+  .card--phone{width:auto}
+  .card--phone .card__shot{aspect-ratio:auto;height:clamp(96px,28vw,170px)}
+  .card__meta{padding:10px 11px 12px}
+  .card__meta b{font-size:.8125rem}
+  .card__meta i{font-size:.5625rem;letter-spacing:.08em}
+  .card__stack{font-size:.5rem;letter-spacing:.03em;margin-top:5px}
   /* the web shots crop fine to a landscape box, but cover-cropping a 9:16 phone
      capture into one leaves a meaningless strip of its status bar. Letterbox it
      on the card's own gradient instead — it still reads as a phone. */
@@ -797,6 +891,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .grain{animation:none}
   .cursor{display:none!important}
   .hero__cue i{animation:none}
+  .btn--cv,.btn--cv::before,.btn--cv::after,.status__dot::after{animation:none!important}
+  .status__dot::after{display:none}
   /* keep the designed overlay composition — just freeze it.
      Reduced motion should be the same site standing still, not a different layout. */
   .scene__video{display:none}
