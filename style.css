@@ -287,6 +287,17 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   font-family:var(--f-display);font-size:var(--t-mega);line-height:.85;letter-spacing:-.045em;
   margin:0 0 32px;text-transform:none
 }
+/* Desktop: the headline is width-driven, so on a short laptop window (bookmarks
+   bar, docked dock) the centred block outgrew the viewport and lost the status
+   pill off the top and the CTAs off the bottom. Cap it by height too: everything
+   around the title is ~440px, the title itself is 2.55 × its font-size. */
+@media (min-width:1025px){
+  .hero__title{font-size:max(3.5rem,min(var(--t-mega),calc((100vh - 440px)/2.55)))}
+  @supports (height:100svh){
+    .hero__title{font-size:max(3.5rem,min(var(--t-mega),calc((100svh - 440px)/2.55)))}
+  }
+  .hero__content{justify-content:safe center;padding-top:72px;padding-bottom:40px}
+}
 .hero__title .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero__title .line__i{
   display:block;font-variation-settings:'wght' 800,'wdth' 92;
